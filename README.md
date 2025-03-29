@@ -16,7 +16,7 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Compile and Hot-Reload for Development.
 
 ```sh
 npm run dev
@@ -33,4 +33,4 @@ npm run build
 ```sh
 npm run lint
 ```
-"# StackG2-VUE-Front" 
+"# StackG2-VUE-Front-V1" 
