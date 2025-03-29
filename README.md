@@ -33,4 +33,4 @@ npm run build
 ```sh
 npm run lint
 ```
-"# StackG2-VUE-Front-V1" 
+"# StackG2-VUE-Front" 
