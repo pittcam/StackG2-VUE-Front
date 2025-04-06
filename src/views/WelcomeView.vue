@@ -5,7 +5,7 @@
             <h1 class="title">Toma tu primer paso en un mundo genial</h1>
             <p class="description">MovieNest te permite realizar un seguimiento de todas las películas
                que has visto, para que puedas agregar a tu lista de favoritos o de verlas después.</p>
-            <button class="button" @click="$router.push('/Iniciar Sesión')">Únete</button>
+            <button class="button" @click="$router.push('/Login')">Únete</button>
 
         </div>
      

@@ -1,10 +1,6 @@
 <template>
     <header class="navbar">
       <div class="logo">MovieNest</div>
-      <nav class="nav-links">
-        <router-link to="/login" class="nav-item">Iniciar sesión</router-link>
-        <router-link to="/register" class="nav-item">Crea tu cuenta</router-link>
-      </nav>
     </header>
   </template>
   
@@ -38,21 +34,5 @@
     font-weight: bold;
   }
   
-  .nav-links {
-    display: flex;
-    align-items: center;
-    margin-left: auto; /* Alinea a la derecha */
-  }
-  
-  .nav-item {
-    margin-left: 20px;
-    text-decoration: none;
-    color: white; /* Cambia el color según tu diseño */
-    transition: color 0.3s;
-  }
-  
-  .nav-item:hover {
-    color: #00bcd4; /* Color de hover */
-  }
   </style>
   
