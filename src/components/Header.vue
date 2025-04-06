@@ -2,8 +2,8 @@
     <header class="navbar">
       <div class="logo">MovieNest</div>
       <nav class="nav-links">
-        <router-link to="/Iniciar Sesión" class="nav-item">Sign In</router-link>
-        <router-link to="/Crear cuenta" class="nav-item">Create Account</router-link>
+        <router-link to="/Iniciar Sesión" class="nav-item">Iniciar sesión</router-link>
+        <router-link to="/Crear cuenta" class="nav-item">Crear cuenta</router-link>
       </nav>
     </header>
   </template>
@@ -11,18 +11,27 @@
   <script>
   export default {
     name: "NavigationBar",
+    
   };
   </script>
   
   <style>
   .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 32px;
-    background-color: transparent;
-    color: white; /* Cambia el color según tu diseño */
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 64px; /* Aumenta el padding horizontal */
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  color: white;
+  box-sizing: border-box;
+}
+
   
   .logo {
     font-size: 24px;
@@ -31,6 +40,8 @@
   
   .nav-links {
     display: flex;
+    align-items: center;
+    margin-left: auto; /* Alinea a la derecha */
   }
   
   .nav-item {
