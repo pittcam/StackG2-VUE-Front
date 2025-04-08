@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client/core'
 import { setContext } from '@apollo/client/link/context'
-'
+
 
 // Paso 1: Define el enlace HTTP a tu servidor GraphQL
 const httpLink = createHttpLink({
