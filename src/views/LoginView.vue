@@ -36,7 +36,7 @@
   <style scoped>
   .login-container {
     min-height: 100vh;
-    background-image: url('/src/assets/club-pelea.jpg');
+    background-image: url('/src/views/assets/club-pelea.jpg');
     background-size: cover;
     background-position: center;
     display: flex;

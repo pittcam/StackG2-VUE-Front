@@ -1,4 +1,4 @@
-import './assets/main.css'
+import '@/views/assets/main.css'
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all.js'
 
@@ -6,8 +6,8 @@ import '@fortawesome/fontawesome-free/js/all.js'
 import { createApp,provide,h } from 'vue'
 import App from './App.vue'
 import { DefaultApolloClient } from '@vue/apollo-composable'
-import apolloClient from './apollo/apollo'
-import router from './router'
+import apolloClient from './models/apollo/apollo'
+import router from '.'
 
 const app = createApp({
     setup() {

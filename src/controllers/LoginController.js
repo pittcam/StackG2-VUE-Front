@@ -1,8 +1,7 @@
-import Footer from '@/components/Footer.vue'
-import Header2 from '@/components/Header2.vue';
+import Footer from '@/views/components/Footer.vue'
+import Header2 from '@/views/components/Header2.vue';
 import { useMutation } from '@vue/apollo-composable'
 import gql from 'graphql-tag'
-
 
 const LOGIN_USER = gql`
   mutation Login($email: String!, $password: String!) {

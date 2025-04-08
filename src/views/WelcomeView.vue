@@ -22,13 +22,13 @@
     </div>
 
     <div class="image-column">
-      <img src="/src/assets/imagen1-inicio.png" alt="Películas favoritas" class="side-image" />
+      <img src="/src/views/assets/imagen1-inicio.png" alt="Películas favoritas" class="side-image" />
     </div>
   </div>
 
   <div class="page-container3">
   <div class="image-column">
-    <img src="/src/assets/imagen2-inicio.png" alt="Películas favoritas" class="side-image" />
+    <img src="/src/views/assets/imagen2-inicio.png" alt="Películas favoritas" class="side-image" />
   </div>
 
   <div class="text-column">
@@ -51,8 +51,8 @@
 
   
   <script>
-  import Header from '@/components/Header.vue';
-  import Footer from '@/components/Footer.vue';
+  import Header from '@/views/components/Header.vue';
+  import Footer from '@/views/components/Footer.vue';
   
   export default {
     components: {
@@ -148,7 +148,7 @@
   align-items: center;
   margin: 0;
   padding: 0;
-  background-image: url('/src/assets/club-pelea.jpg');
+  background-image: url('/src/views/assets/club-pelea.jpg');
   background-size: cover;
   background-position: center;
   min-height: 100vh;
