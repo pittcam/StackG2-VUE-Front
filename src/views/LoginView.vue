@@ -6,7 +6,7 @@
         <form @submit.prevent="handleLogin" class="form">
           <input
             type="text"
-            v-model="form.username"
+            v-model="form.email"
             placeholder="Correo"
             required
           />

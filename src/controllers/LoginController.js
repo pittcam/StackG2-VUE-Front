@@ -28,34 +28,34 @@ export default {
       error: '',
     }
   },
-  setup() {
-    const { mutate: loginUser } = useMutation(LOGIN_USER)
-    return { loginUser }
+  apollo: {
+    // optional: puedes usar esto si quieres obtener algo al montar
   },
   methods: {
     async handleLogin() {
       this.error = ''
-
+  
       if (!this.form.email || !this.form.password) {
         this.error = 'Correo y contraseña son requeridos'
         return
       }
-
+  
       try {
-        const { data } = await this.loginUser({
-          email: this.form.email,
-          password: this.form.password,
+        const { data } = await this.$apollo.mutate({
+          mutation: LOGIN_USER,
+          variables: {
+            email: this.form.email,
+            password: this.form.password,
+          },
         })
-
-        // Guarda el token en localStorage
+  
         localStorage.setItem('token', data.loginUser.token)
-
-        // Redirige a la página principal
         this.$router.push('/principal')
-      } catch (e) {
-        console.error(e)
+      } catch (err) {
+        console.error(err)
         this.error = 'Error al iniciar sesión. Verifica tus credenciales.'
       }
     },
   },
+  
 }
