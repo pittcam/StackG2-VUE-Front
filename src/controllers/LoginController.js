@@ -1,16 +1,14 @@
 import Footer from '@/views/components/Footer.vue'
-import Header2 from '@/views/components/Header2.vue';
+import Header2 from '@/views/components/Header2.vue'
 import { useMutation } from '@vue/apollo-composable'
 import gql from 'graphql-tag'
 
 const LOGIN_USER = gql`
-  mutation Login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
+  mutation LoginUser($email: String!, $password: String!) {
+    loginUser(email: $email, password: $password) {
+      id
+      email
       token
-      user {
-        id
-        email
-      }
     }
   }
 `
@@ -31,8 +29,8 @@ export default {
     }
   },
   setup() {
-    const { mutate: login, onDone, onError } = useMutation(LOGIN_USER)
-    return { login, onDone, onError }
+    const { mutate: loginUser } = useMutation(LOGIN_USER)
+    return { loginUser }
   },
   methods: {
     async handleLogin() {
@@ -44,15 +42,15 @@ export default {
       }
 
       try {
-        const { data } = await this.login({
+        const { data } = await this.loginUser({
           email: this.form.email,
           password: this.form.password,
         })
 
-        // Guarda token si es necesario
-        localStorage.setItem('token', data.login.token)
+        // Guarda el token en localStorage
+        localStorage.setItem('token', data.loginUser.token)
 
-        // Redirección exitosa
+        // Redirige a la página principal
         this.$router.push('/principal')
       } catch (e) {
         console.error(e)
