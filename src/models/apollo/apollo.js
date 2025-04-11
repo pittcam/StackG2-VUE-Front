@@ -4,7 +4,7 @@ import { setContext } from '@apollo/client/link/context'
 
 // Paso 1: Define el enlace HTTP a tu servidor GraphQL
 const httpLink = createHttpLink({
-  uri: 'http://localhost:5000/graphql', // ← ajusta si es HTTPS y puerto real
+  uri: 'http://localhost:4000/graphql', // ← ajusta si es HTTPS y puerto real
 })
 
 // Paso 2: Agrega el JWT desde Supabase al header de cada request
