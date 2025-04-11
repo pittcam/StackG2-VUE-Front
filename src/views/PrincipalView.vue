@@ -18,7 +18,7 @@
             <div class="image-container">
               <img :src="movie.poster" :alt="movie.title" @click="goToMovie(movie.id)" />
               <div class="overlay-icons">
-                <button @click="addToFavorites(movie.id)">❤️</button>
+               <button @click="addToFavorites(movie.id)">❤️</button>
                 <button @click="addToWatchLater(movie.id)">⏰</button>
               </div>
             </div>
@@ -33,19 +33,22 @@
         </p>
       </div>
     </div>
+    <Footer/>
   </template>
   
   <script>
     import HeaderSearch from '@/views/components/HeaderSearch.vue'
-    import PrincipalController from '@/controllers/PrincipalController.js';
-    export default {
-    controllers: {
-      PrincipalController,
-      HeaderSearch
-    },  
-  }
+    import PrincipalController from '@/controllers/PrincipalController.js'
+    import Footer from '@/views/components/Footer.vue'
 
-  </script>
+    export default {
+    name: 'PrincipalView',
+    components: {
+        HeaderSearch, Footer
+    },
+    mixins: [PrincipalController]
+    }
+</script>
   
   <style scoped>
   .search-page {
@@ -72,7 +75,7 @@
   }
   
   .movie-card {
-    width: 240px;
+    width: 300px;
     background-color: #1e1e1e;
     padding: 16px;
     border-radius: 8px;
@@ -85,9 +88,12 @@
   }
   
   .image-container img {
-    width: 100%;
-    border-radius: 6px;
-  }
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
   
   .overlay-icons {
     position: absolute;

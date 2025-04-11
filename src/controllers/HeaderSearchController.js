@@ -1,3 +1,4 @@
+
 const HeaderSearchController = {
     data() {
       return {
@@ -7,10 +8,10 @@ const HeaderSearchController = {
     },
   
     methods: {
-      search(query) {
-        if (!query.trim()) return;
-        window.location.href = `/buscar?q=${encodeURIComponent(query)}`;
-      },
+        search(query) {
+            if (!query.trim()) return;
+            window.location.href = `/principal?q=${encodeURIComponent(query)}`;
+        },
   
       handleSearch() {
         this.search(this.searchQuery);

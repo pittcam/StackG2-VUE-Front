@@ -1,7 +1,7 @@
 import apolloClient from '@/models/apollo/apollo' // Asegúrate que esté bien referenciado
 
 import gql from 'graphql-tag'
-import HeaderSearch from '@/components/HeaderSearch.vue'
+import HeaderSearch from '@/views/components/HeaderSearch.vue'
 
 export default {
   name: 'PrincipalView',
@@ -44,7 +44,7 @@ export default {
                 title
                 overview
                 release_date
-                poster_path
+                poster
               }
             }
           `,
