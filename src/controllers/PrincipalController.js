@@ -1,7 +1,22 @@
-import apolloClient from '@/models/apollo/apollo' // Asegúrate que esté bien referenciado
-
+import apolloClient from '@/models/apollo/apollo'
 import gql from 'graphql-tag'
 import HeaderSearch from '@/views/components/HeaderSearch.vue'
+
+const ADD_TO_FAVORITES = gql`
+  mutation AddToFavorites($userId: ID!, $movieId: ID!) {
+    addToFavorites(userId: $userId, movieId: $movieId) {
+      id
+    }
+  }
+`
+
+const ADD_TO_WATCH_LATER = gql`
+  mutation AddToWatchLater($userId: ID!, $movieId: ID!) {
+    addToWatchLater(userId: $userId, movieId: $movieId) {
+      id
+    }
+  }
+`
 
 export default {
   name: 'PrincipalView',
@@ -55,8 +70,8 @@ export default {
           id: movie.id,
           title: movie.title,
           year: movie.release_date ? movie.release_date.split('-')[0] : 'N/A',
-          poster: movie.poster_path
-            ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+          poster: movie.poster
+            ? `https://image.tmdb.org/t/p/w500${movie.poster}`
             : '/placeholder.jpg',
           description: movie.overview || 'Sin descripción disponible.'
         }))
@@ -66,19 +81,39 @@ export default {
       }
     },
 
-    addToFavorites(movieId) {
-      let favorites = JSON.parse(localStorage.getItem('favorites')) || []
-      if (!favorites.includes(movieId)) {
-        favorites.push(movieId)
-        localStorage.setItem('favorites', JSON.stringify(favorites))
+    async addToFavorites(movieId) {
+      const userId = localStorage.getItem('userId')
+      if (!userId) {
+        console.error('No se encontró el ID de usuario.')
+        return
+      }
+
+      try {
+        await apolloClient.mutate({
+          mutation: ADD_TO_FAVORITES,
+          variables: { userId, movieId }
+        })
+        console.log('Película agregada a favoritos')
+      } catch (error) {
+        console.error('Error al agregar a favoritos:', error)
       }
     },
 
-    addToWatchLater(movieId) {
-      let watchLater = JSON.parse(localStorage.getItem('watchLater')) || []
-      if (!watchLater.includes(movieId)) {
-        watchLater.push(movieId)
-        localStorage.setItem('watchLater', JSON.stringify(watchLater))
+    async addToWatchLater(movieId) {
+      const userId = localStorage.getItem('userId')
+      if (!userId) {
+        console.error('No se encontró el ID de usuario.')
+        return
+      }
+
+      try {
+        await apolloClient.mutate({
+          mutation: ADD_TO_WATCH_LATER,
+          variables: { userId, movieId }
+        })
+        console.log('Película agregada a ver más tarde')
+      } catch (error) {
+        console.error('Error al agregar a ver más tarde:', error)
       }
     },
 

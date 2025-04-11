@@ -76,6 +76,7 @@
   
   .movie-card {
     width: 300px;
+    height: 500px;
     background-color: #1e1e1e;
     padding: 16px;
     border-radius: 8px;
@@ -88,35 +89,55 @@
   }
   
   .image-container img {
-  width: 100%;
-  height: 450px;
+  width: 200px;
+  height: 300px;
+  height: auto;
   object-fit: cover;
   border-radius: 6px;
 }
 
   
-  .overlay-icons {
-    position: absolute;
-    bottom: 8px;
-    left: 8px;
-    display: flex;
-    gap: 8px;
-  }
-  
-  .overlay-icons button {
-    background: rgba(0, 0, 0, 0.6);
-    border: none;
-    padding: 4px 6px;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer;
-    font-size: 18px;
-  }
+.overlay-icons {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.overlay-icons button {
+  background-color: #444; /* Gris oscuro */
+  border: none;
+  padding: 6px 8px;
+  border-radius: 50%;
+  color: #fff; /* Icono blanco */
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.overlay-icons button:hover {
+  background-color: #666;
+}
+
+
   
   .description {
-    font-size: 0.9rem;
-    color: #ccc;
-    margin-top: 8px;
-  }
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-top: 8px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Número de líneas visibles */
+  line-clamp: 4; /* Número de líneas visibles */
+  -webkit-box-orient: vertical;
+}
+
+
   </style>
   

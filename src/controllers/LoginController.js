@@ -50,6 +50,8 @@ export default {
         })
   
         localStorage.setItem('token', data.loginUser.token)
+        localStorage.setItem('userId', data.loginUser.id)
+
         this.$router.push('/principal')
       } catch (err) {
         console.error(err)

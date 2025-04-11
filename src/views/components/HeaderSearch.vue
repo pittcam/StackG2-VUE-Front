@@ -1,6 +1,6 @@
 <template> 
     <header class="navbar">
-      <div class="logo">MovieNest</div>
+      <router-link to="/principal" class="logo">MovieNest</router-link>
   
       <div class="search-container">
         <input
@@ -14,11 +14,11 @@
   
       <nav class="nav-links">
         <span class="nav-item user-name">Hola, {{ userName }}</span>
-        <router-link to="/listas" class="nav-item">Listas</router-link>
+        <router-link to="/profile" class="nav-item">Mi perfil</router-link>
         <button @click="logout" class="nav-item logout-button">Cerrar sesión</button>
       </nav>
     </header>
-  </template>
+</template>
   
   <script>
     import HeaderSearchController from '@/controllers/HeaderSearchController.js'
@@ -44,9 +44,12 @@
   }
   
   .logo {
-    font-size: 24px;
-    font-weight: bold;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
   }
+
   
   .search-container {
     flex: 1;
