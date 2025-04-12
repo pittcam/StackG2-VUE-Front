@@ -7,18 +7,20 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
+
+# Vite o Vue CLI
 RUN npm run build
 
-# Etapa 2: Producción
-FROM node:18-alpine
+# Etapa 2: Producción con Nginx
+FROM nginx:stable-alpine
 
-WORKDIR /app
+# Copia los archivos generados al directorio de Nginx
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-COPY --from=builder /app/package*.json ./
-COPY --from=builder /app/.next .next
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/node_modules ./node_modules
+# Opcional: reemplazar archivo de configuración default si lo necesitas
+# COPY nginx.conf /etc/nginx/nginx.conf
 
-EXPOSE 3000
+EXPOSE 80
 
-CMD ["npm", "start"]
+CMD ["nginx", "-g", "daemon off;"]
+

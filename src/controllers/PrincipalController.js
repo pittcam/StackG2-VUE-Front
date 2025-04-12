@@ -3,9 +3,10 @@ import gql from 'graphql-tag'
 import HeaderSearch from '@/views/components/HeaderSearch.vue'
 
 const ADD_TO_FAVORITES = gql`
-  mutation AddToFavorites($userId: ID!, $movieId: ID!) {
-    addToFavorites(userId: $userId, movieId: $movieId) {
-      id
+  mutation AddFavoriteMovie($user_id: ID!, $movie_id: ID!) {
+    addFavoriteMovie(user_id: $user_id, movie_id: $movie_id) {
+      success
+      movie_id
     }
   }
 `
@@ -13,7 +14,8 @@ const ADD_TO_FAVORITES = gql`
 const ADD_TO_WATCH_LATER = gql`
   mutation AddToWatchLater($userId: ID!, $movieId: ID!) {
     addToWatchLater(userId: $userId, movieId: $movieId) {
-      id
+      userId
+      movieId
     }
   }
 `
@@ -87,16 +89,19 @@ export default {
         console.error('No se encontró el ID de usuario.')
         return
       }
-
+    
       try {
         await apolloClient.mutate({
           mutation: ADD_TO_FAVORITES,
-          variables: { userId, movieId }
+          variables: {
+            user_id: userId,
+            movie_id: movieId, // ya no necesita parseInt
+          },
         })
         console.log('Película agregada a favoritos')
       } catch (error) {
-        console.error('Error al agregar a favoritos:', error)
-      }
+        console.error('❌ Error al agregar a favoritos:', JSON.stringify(error, null, 2))
+    }
     },
 
     async addToWatchLater(movieId) {
