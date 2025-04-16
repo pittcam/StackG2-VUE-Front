@@ -18,7 +18,6 @@ export default {
                 query GetFavorites {
                   favorites {
                     id
-                    title
                     poster
                   }
                 }
@@ -41,7 +40,6 @@ export default {
                 query GetWatchLater {
                   watchLater {
                     id
-                    title
                     poster
                   }
                 }
