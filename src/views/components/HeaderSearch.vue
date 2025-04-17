@@ -13,7 +13,6 @@
       </div>
   
       <nav class="nav-links">
-        <span class="nav-item user-name">Hola, {{ userName }}</span>
         <router-link to="/profile" class="nav-item">Mi perfil</router-link>
         <button @click="logout" class="nav-item logout-button">Cerrar sesión</button>
       </nav>
