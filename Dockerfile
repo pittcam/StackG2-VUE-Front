@@ -1,5 +1,4 @@
-# Etapa 1: Construcción
-FROM node:18 AS builder
+FROM node:18
 
 WORKDIR /app
 
@@ -8,19 +7,6 @@ RUN npm install
 
 COPY . .
 
-# Vite o Vue CLI
-RUN npm run build
+EXPOSE 5173
 
-# Etapa 2: Producción con Nginx
-FROM nginx:stable-alpine
-
-# Copia los archivos generados al directorio de Nginx
-COPY --from=builder /app/dist /usr/share/nginx/html
-
-# Opcional: reemplazar archivo de configuración default si lo necesitas
-# COPY nginx.conf /etc/nginx/nginx.conf
-
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
-
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]

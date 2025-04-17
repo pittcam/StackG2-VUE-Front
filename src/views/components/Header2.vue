@@ -1,6 +1,6 @@
 <template>
     <header class="navbar">
-      <div class="logo">MovieNest</div>
+      <router-link to="/" class="logo">MovieNest</router-link>
     </header>
   </template>
   
@@ -30,8 +30,10 @@
 
   
   .logo {
-    font-size: 24px;
-    font-weight: bold;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
   }
   
   </style>
