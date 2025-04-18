@@ -19,6 +19,20 @@ export default {
   },
 
   methods: {
+    
+    scrollLeft(refName) {
+      const container = this.$refs[refName]
+      if (container) {
+        container.scrollLeft -= 200
+      }
+    },
+    scrollRight(refName) {
+      const container = this.$refs[refName]
+      if (container) {
+        container.scrollLeft += 200
+      }
+    },
+
     async fetchFavorites() {
       try {
         const userId = localStorage.getItem('userId')
