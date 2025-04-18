@@ -2,11 +2,6 @@
     <div class="list-user-page">
         <HeaderSearch />
 
-        <div class="user-header">
-        <div class="avatar"></div>
-        <h2>{{ username }}</h2>
-        </div>
-
         <section class="list-section">
         <h3>Favoritos</h3>
         <div class="scroll-wrapper">
