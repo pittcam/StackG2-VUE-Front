@@ -35,13 +35,16 @@ Si quiere detenerse se usa el comando: docker-compose down
 ## 3. Acceder a la página de forma local
 
 Al crearse los contenedores correctamente, se accede a la página a través de cualquier navegador (Edge, Chrome, Opera, etc.). Mediante la dirección:
-**localhost:5173**
+
+- localhost:5173
 
 Para acceder a los servicios y probar las queries de graphQL para los dos servicios se accede con las siguientes direcciones:
-http://localhost:5000/graphql -->Servicio 1 
-http://localhost:5001/graphql --->Servicio2
+- http://localhost:5000/graphql -->Servicio 1 
+- http://localhost:5001/graphql --->Servicio2
 
 En el servicio 1, puede probarse con una query de registro como la siguiente:
+
+```
 mutation {
   registerUser(
     email: "usuario@gmail.com"
@@ -54,8 +57,11 @@ mutation {
     token
   }
 }
+```
 
 En el servicio 2, puedo comprobarse la obtención de la información de la película por el título, por una query como esta:
+
+```
 query BuscarPeliculas {
   searchMovies(query: "Batman") {
     id
@@ -64,4 +70,6 @@ query BuscarPeliculas {
     release_date
     poster
   }
+ 
 }
+```
